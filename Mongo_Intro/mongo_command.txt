@@ -1,0 +1,21 @@
+use data
+
+db.createCollection("users")
+
+db.users.insert({"first_name":"Kapil","last_name":"jadon","email":"kapil@gmail.com","gender":"male","ip_address":"12.34.1234","age":"19"})
+
+ db.users.insertMany([{"first_name":"Ankit","last_name":"Singh","email":"ankit@gmail.com","gender":"male","ip_address":"12.38.1240","age":"28"},{"first_name":"Sumit","last_name":"Sirohi","email":"sumit@gmail.com","gender":"male","ip_address":"12.38.1242","age":"30"},{"first_name":"Amir","last_name":"Ali","email":"amir@gmail.com","gender":"male","ip_address":"12.38.1244","age":"26"},{"first_name":"Ajay","last_name":"Devgan","email":"ajay@gmail.com","gender":"male","ip_address":"12.38.1246","age":"28"},{"first_name":"Aarif","last_name":"Khan","email":"aarif@gmail.com","gender":"male","ip_address":"12.38.1248","age":"34"},{"first_name":"Sahul","last_name":"Thakur","email":"sahul@gmail.com","gender":"male","ip_address":"12.38.1250","age":"36"},{"first_name":"Aakash","last_name":"Kumar","email":"aakash@gmail.com","gender":"male","ip_address":"12.38.1252","age":"32"}])
+
+db.users.findOne({"first_name":"Sahul"})
+
+ db.users.update({"first_name":"Aakash"},{$set:{"age":"24"}})
+
+ db.users.updateMany({"age":"28"},{$set:{"city":"Pune"}})
+
+ db.users.remove({"first_name":"Ajay"})
+
+ db.users.deleteOne({"first_name":"Ankit"})
+
+ db.users.deleteMany({"age":"28"})
+
+ db.dropDatabase()
