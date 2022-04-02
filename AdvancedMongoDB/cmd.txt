@@ -1,0 +1,23 @@
+use mockData
+db.createCollection("Movie")
+
+
+db.Movie.find({movie_name: "Justus"},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$not :{$eq : {movie_name: "Justus"}}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$gte :{budget: 10000}}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$lte :{budget: 10000}}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$and :[{$gte :{budget: 10000}} , {$gte :{production_year: 2000 }}]},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$not :{$or :[{$gte :{budget: 10000}} , {$gte :{production_year: 2000 }}]}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$not :{$or :[{$eq :{budget: 10000}} , {$eq :{production_year: 2000 }}]}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({$in :{$gte :{production_year: 2000 }} , {$lte :{production_year: 2010 }}},{movie_name : 1, production_year: 1});
+
+db.Movie.find({},{movie_name : 1, production_year: 1}).sort({production_year: 1}, {movie_name: "abc"}).skip(10).limit(5);
+
+db.Movie.remove({}).limit(10);
